@@ -1,16 +1,17 @@
 // import logo from './logo.svg';
 import './App.css';
 import ProductCard from '../pages/productlist/productlist';
+import Navbar from '../components/navbar/navbar';
 
 
 
 function App() {
   return (
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        My WebHSop
-      </h1>    
-      <ProductCard />
+      <Navbar /> 
+      <div className="text-center">
+        <ProductCard />
+      </div>  
     </div>
   );
 }
