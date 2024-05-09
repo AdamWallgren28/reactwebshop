@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+
 export default function ProductCard() {
   let[fetchData, setFetchData] = useState([]);
 
@@ -16,35 +17,24 @@ export default function ProductCard() {
 
   return (
     <>
-      <h1>Products:</h1>
-      <div className="flex justify-center">
-        <ul className='flex flex-wrap w-[80vw]'>
-          {fetchData.map((product, index) => (
-            <div className="bg-gray-200 max-w-sm p-4 border-2 rounded m-7 ">
-              <li key={index}>
-                <img src={product.images[0]} alt="product" className='w-[20vw] h-[20vw]'/>
-                <h2 className='font-bold'>{product.title}</h2>
-                <h5 className='hidden'>{product.description}</h5>
-                <h3 className='text-green-500'>${product.price}</h3>
-                <button class="bg-gray-200 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded">
-                  Add to chart
-                </button>
-              </li>
-            </div>
-          ))}          
-        </ul>
-      </div>
+        <h1>Products:</h1>
+        <div className="flex justify-center">
+          <ul className='flex flex-wrap w-[80vw] justify-between'>
+            {fetchData.map((product, index) => (
+              <div className="bg-gray-200 max-w-sm p-4 border-2 rounded m-7">
+                <li key={index}>
+                  <img src={product.thumbnail} alt="product" className='w-[18vw] h-[14vw]'/>
+                  <h2 className='font-bold'>{product.title}</h2>
+                  <h5 className='hidden'>{product.description}</h5>
+                  <h3 className='text-green-500'>${product.price}</h3>
+                  <button class="bg-gray-200 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded">
+                    Add to chart
+                  </button>
+                </li>
+              </div>
+            ))}          
+          </ul>
+        </div>       
     </>
   );
 }
-
-
-
-// useEffect(() => {
-//     const GetDataProducts = async () => {
-//       const res = await fetch("https://dummyjson.com/products");
-//       const products = await res.json();
-//       setArrayChildren([...products]);
-//     }
-//     GetDataProducts();
-//   }, []);
