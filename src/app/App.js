@@ -7,24 +7,26 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { About } from '../pages/about/about';
 import Footer from '../components/footer/footer';
 import Home from '../pages/home/home';
+import ShopContextProvider from '../context/shopcontext';
 
 
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Navbar />  
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/productlist' element={<ProductCard />} />
-          <Route path='/checkout' element={<CheckOut />} />
-          <Route path='/about' element={<About />} />      
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
-    
+    <ShopContextProvider>
+      <Router>
+        <div className="App">
+          <Navbar />  
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/productlist' element={<ProductCard />} />
+            <Route path='/checkout' element={<CheckOut />} />
+            <Route path='/about' element={<About />} />      
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ShopContextProvider>
   );
 }
 
