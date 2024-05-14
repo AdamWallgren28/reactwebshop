@@ -1,9 +1,21 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
  
-
-export const ShopContext = createContext(null);
+export let ShopContext = createContext(null);
 
 export default function ShopContextPlusAndMinus (props) {
+    let[fetchData, setFetchData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://dummyjson.com/products?limit=10')
+          .then(res => res.json())
+          .then(json => {
+            setFetchData(json.products); // Update state with fetched data
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      }, []); // Tom vektor, gör att funtionen enbart körs en gång?
+
     let [cart, setCart] = useState({});
 
     function addToCart(itemId) {
@@ -30,7 +42,7 @@ export default function ShopContextPlusAndMinus (props) {
         });
     }
 
-    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart};
+    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, fetchData};
     
     console.log(cart);
 
