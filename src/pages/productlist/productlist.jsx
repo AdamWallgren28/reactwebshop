@@ -14,7 +14,7 @@ export default function ProductCard() {
        <h1 className="my-8">Products:</h1>     
         <ul className='flex flex-wrap  justify-between'>
           {fetchData.map((product) => (
-            <div key={product.id} className="bg-gray-200 max-w-sm p-4 border-2 rounded my-7 rounded-lg">
+            <div key={product.id} className="bg-gray-200 max-w-sm p-4 border-2 my-7 rounded-lg">
               <li>
                 <img src={product.thumbnail} alt="product" className='w-[18vw] h-[14vw] rounded-lg'/>
                 <h2 className='font-bold'>{product.title}</h2>
