@@ -8,7 +8,7 @@ export default function Home() {
                 <div className="w-[80vw] min-h-screen flex justify-start flex-col items-center ">
                     <h1 className='p-4  text-center'>Welcome!</h1>
                     <Link to='/productlist'>
-                        <button className=" bg-gray-200 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded">
+                        <button className=" bg-gray-200 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded  active:border-gray-500">
                             Shop now!
                         </button>
                     </Link>

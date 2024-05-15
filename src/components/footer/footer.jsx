@@ -8,8 +8,8 @@ export default function Footer () {
         <div className="flex justify-between items-center">
           <div>
             <p>&copy; {new Date().getFullYear()}, Mattias Fucik and Belphegor Develpment AB. All rights reserved.</p>
-            <p>If you liked this website, you can see more of my work at: <a href="https://github.com/AdamWallgren28">My GitHub</a></p>
-            <p>or: <a href="https://adamwallgren28.github.io/ProjektArbeteVT24/">My portfolio website</a></p>
+            <p>If you liked this website, you can see more of my work at: <a href="https://github.com/AdamWallgren28" className="text-blue-500">My GitHub</a></p>
+            <p>or: <a href="https://adamwallgren28.github.io/ProjektArbeteVT24/" className="text-blue-500">My portfolio website</a></p>
            
           </div>
           <div>
