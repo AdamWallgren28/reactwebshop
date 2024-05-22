@@ -4,8 +4,8 @@ export default function OrderSummery({cart, cartProducts}){
 
 
     return (
-        <div className='m-4 p-4 w-[50vw] bg-gray-300 rounded-lg'>
-            <h2 className='text-center font-bold my-4'>Order Summery</h2>
+        <div className='m-4 px-4 py-2 w-[50vw] bg-gray-300 rounded-lg'>
+            <h2 className='text-center font-bold my-2'>Order Summery</h2>
             <div className='flex'>
                     <p className='w-[16vw]'>Product:</p>
                     <p className='w-[8vw]'>Qty:</p> 
@@ -13,7 +13,7 @@ export default function OrderSummery({cart, cartProducts}){
                     <p className='w-[8vw]'>tot:</p>
             </div>
             <hr className='border-gray-400'></hr>
-            <div>
+            <div className='text-xs'>
                 {cartProducts.map((product) => (
                     <div key={product.id} className='flex'>
                         <p className='w-[16vw]'>- {product.title}</p>
@@ -26,14 +26,12 @@ export default function OrderSummery({cart, cartProducts}){
             <hr className='border-gray-400'></hr>
             <div className='flex justify-end'>
                 <div className='flex flex-col'>
-                    <p class='totalCost' className='my-4'>
+                    <p class='totalCost' className='my-2'>
                         Total cost: $ {cartProducts.reduce(
                             (sum, product) => sum + product.price * cart[product.id], 0
                         )}
                     </p>
-                    <button className="m-8 bg-gray-200 border border-black border-opacity-25 text-black font-bold py-2 px-4 mx-0 my-4 rounded  active:border-gray-500 hover:bg-red-600 hover:text-gray-200">
-                        Empty shopping cart
-                    </button>
+                    
                 </div>
             </div>
         </div>

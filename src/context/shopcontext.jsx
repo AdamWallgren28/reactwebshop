@@ -42,7 +42,11 @@ export default function ShopContextPlusAndMinus (props) {
         });
     }
 
-    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, fetchData};
+    function deleteCart() {
+        setCart({}) ;
+    }
+
+    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData};
     
     console.log(cart);
 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import OrderSummery from '../../components/ordersummery/ordersummery';
 import CheckOutInfo from '../../components/checkoutinfo/checkoutinfo';
 
+
 export default function CheckOut() {
 const {cart, fetchData} = useContext(ShopContext);
 const cartProducts = fetchData.filter((product) => cart[product.id] > 0 );
