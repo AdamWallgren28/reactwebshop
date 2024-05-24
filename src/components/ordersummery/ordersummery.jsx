@@ -7,7 +7,7 @@ export default function OrderSummery({cart, cartProducts}){
         <div className='m-4 px-4 py-2 w-[50vw] bg-gray-300 rounded-lg'>
             <h2 className='text-center font-bold my-2'>Order Summery</h2>
             <div className='flex'>
-                    <p className='w-[16vw]'>Product:</p>
+                    <p className='w-[24vw]'>Product:</p>
                     <p className='w-[8vw]'>Qty:</p> 
                     <p className='w-[8vw]'>à:</p>
                     <p className='w-[8vw]'>tot:</p>
@@ -16,7 +16,7 @@ export default function OrderSummery({cart, cartProducts}){
             <div className='text-xs'>
                 {cartProducts.map((product) => (
                     <div key={product.id} className='flex'>
-                        <p className='w-[16vw]'>- {product.title}</p>
+                        <p className='w-[24vw]'>- {product.title}</p>
                         <p className='w-[8vw]'>{cart[product.id]}</p> 
                         <p className='w-[8vw]'>$ {product.price}</p>
                         <p className='w-[8vw]'>$ {product.price*cart[product.id]}</p>
