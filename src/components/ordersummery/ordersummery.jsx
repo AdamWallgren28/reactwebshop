@@ -19,7 +19,7 @@ export default function OrderSummery({cart, cartProducts}){
                         <p className='w-[24vw]'>- {product.title}</p>
                         <p className='w-[8vw]'>{cart[product.id]}</p> 
                         <p className='w-[8vw]'>$ {product.price}</p>
-                        <p className='w-[8vw]'>$ {product.price*cart[product.id]}</p>
+                        <p className='w-[8vw]'>$ {(product.price*cart[product.id]).toFixed(2)}</p>
                     </div>
                 ))}
             </div>
@@ -29,9 +29,8 @@ export default function OrderSummery({cart, cartProducts}){
                     <p class='totalCost' className='my-2'>
                         Total cost: $ {cartProducts.reduce(
                             (sum, product) => sum + product.price * cart[product.id], 0
-                        )}
-                    </p>
-                    
+                        ).toFixed(2)}
+                    </p> 
                 </div>
             </div>
         </div>

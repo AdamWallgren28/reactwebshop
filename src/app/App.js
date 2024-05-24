@@ -9,6 +9,7 @@ import Footer from '../components/footer/footer';
 import Home from '../pages/home/home';
 import ShopContextProvider from '../context/shopcontext';
 import ProductPage from '../pages/productpage/productpage';
+import ToggleCart from '../components/togglecart/togglecart';
 
 
 
@@ -17,7 +18,9 @@ function App() {
     <ShopContextProvider>
       <Router>
         <div className="App">
-          <Navbar />  
+          <ToggleCart />  
+          <Navbar />
+          
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/productlist' element={<ProductCard />} />
