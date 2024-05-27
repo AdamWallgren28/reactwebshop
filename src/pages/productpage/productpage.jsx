@@ -6,14 +6,9 @@ export default function ProductPage() {
   const { productId } = useParams();
   const { fetchData, addToCart } = useContext(ShopContext);
 
-  // Find the product object based on the productId
   const product = fetchData.find((product) => product.id === parseInt(productId));
 
-  console.log(fetchData);
-  console.log(product);
-
   if (!product) {
-    // Handle case where product is not found
     return <div>Product not found</div>;
   }
 

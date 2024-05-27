@@ -18,7 +18,9 @@ export default function ProductCard() {
                   <Link to={`/productpage/${product.id}`}>
                     <img src={product.thumbnail} alt="product" className='w-[100%]'/>
                   </Link>
-                  <h2 className='font-bold'><Link to={`/productpage/${product.id}`}>{product.title}</Link></h2>
+                  <h2 className='font-bold'>
+                    <Link to={`/productpage/${product.id}`}>{product.title}</Link>
+                  </h2>
                   <h5 className='hidden'>{product.description}</h5>
                   <h3 className='text-green-500'>${product.price}</h3>
                   <button onClick={() => addToCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded active:border-gray-500">
