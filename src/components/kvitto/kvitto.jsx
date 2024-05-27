@@ -15,7 +15,7 @@ const Modal = ({ formData, closeModal }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center overflow-x-hidden overflow-y-auto backdrop-blur bg-black bg-opacity-30">
-        <div className='my-4'>
+        <div className='my-8'>
             <div className="bg-white rounded-lg shadow-lg">
                 <div className="p-4">
                     <h3 className="text-xl text-center font-bold mb-2">This is your recipt!</h3>
@@ -36,7 +36,7 @@ const Modal = ({ formData, closeModal }) => {
                     </div>
 
                     <div>
-                        <button onClick={handleClose} className="bg-gray-200 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded">
+                        <button onClick={handleClose} className="bg-gray-200 mx-4 hover:bg-gray-300 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded">
                             Close recipt
                         </button>
                     </div>             

@@ -11,16 +11,13 @@ import ShopContextProvider from '../context/shopcontext';
 import ProductPage from '../pages/productpage/productpage';
 import ToggleCart from '../components/togglecart/togglecart';
 
-
-
-function App() {
-  return (
+export default function App() {
+    return (
     <ShopContextProvider>
       <Router>
         <div className="App">
-          <ToggleCart />  
-          <Navbar />
-          
+          <ToggleCart />
+          <Navbar  />      
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/productlist' element={<ProductCard />} />
@@ -34,5 +31,3 @@ function App() {
     </ShopContextProvider>
   );
 }
-
-export default App;
