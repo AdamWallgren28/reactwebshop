@@ -39,7 +39,7 @@ export default function CheckOutInfo() {
   };
 
   return (
-    <div className="w-[50vw] p-6 bg-gray-300 shadow-md rounded-lg">
+    <div className="w-[80vw] lg:w-[50vw] p-6 bg-gray-300 shadow-md rounded-lg">
       <h2 className="text-xl font-bold mb-4">Delivery information</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

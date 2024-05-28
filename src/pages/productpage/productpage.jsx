@@ -14,9 +14,9 @@ export default function ProductPage() {
 
   return (
     <div className='flex justify-center bg-cover bg-center' style={{backgroundImage: "url('https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}>
-        <div className='w-[70vw] flex justify-start  bg-[white] bg-opacity-80 p-8 m-8 rounded-lg'>
-            
-            <img src={product.thumbnail} alt="product" className="w-[20vw]"/>
+        <div className='w-[90vw] lg:w[70vw] flex flex-col lg:flex-row justify-start  bg-[white] bg-opacity-80 p-8 m-8 rounded-lg'>
+
+            <img src={product.thumbnail} alt="product" className="w-[100%] lg:w-[30vw]"/>          
             <div className='ml-4'>
               <h2 className="text-2xl font-bold mb-4">{product.title}</h2>
               <p>Description:</p>

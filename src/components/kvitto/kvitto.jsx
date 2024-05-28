@@ -23,7 +23,7 @@ const Modal = ({ formData, closeModal }) => {
 
                     <OrderSummery cart={cart} cartProducts={cartProducts} />
 
-                    <div className='bg-gray-300 m-4 px-4 py-2 rounded-lg w-[50vw]'>
+                    <div className='bg-gray-300 m-4 px-4 py-2 rounded-lg w-[80vw] lg:w-[50vw]'>
                         <div className="text-center font-bold my-2">Customer Information</div>
                             <input type="text" value={formData.fullName} className="text-xs w-full px-2 py-1 border rounded-md mb-2"/>
                             <input type="text" value={formData.address} className="text-xs w-full px-2 py-1 border rounded-md mb-2"/>
