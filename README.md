@@ -1,5 +1,5 @@
 
-Prerequisits: Node.js, Git & npm
+Prerequisits: node.js, git & npm
 
 To start this project, clone it from my gitbub:
 # https://github.com/AdamWallgren28/reactwebshop.git

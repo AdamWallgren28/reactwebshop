@@ -14,7 +14,7 @@ export default function ProductCard() {
           <ul className='flex flex-wrap justify-center lg:justify-between'>
             {fetchData.map((product) => (
               <div key={product.id} className="bg-gray-300 max-w-sm px-4 pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw]">
-                <li>
+                <li className='h-[100%] flex flex-col justify-between'>
                   <Link to={`/productpage/${product.id}`}>
                     <img src={product.thumbnail} alt="product" className='w-[100%]'/>
                   </Link>
