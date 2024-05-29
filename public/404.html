@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="refresh" content="0; url=/reactwebshop" />
     <script type="text/javascript">
-      setTimeout(function() {
-        window.location.href = '/reactwebshop' + window.location.pathname + window.location.search;
-      }, 0);
+      // Capture the current path and query parameters
+      var pathname = window.location.pathname;
+      var search = window.location.search;
+      
+      // Ensure the pathname does not start with the basename
+      if (!pathname.startsWith('/reactwebshop')) {
+        pathname = '/reactwebshop' + pathname;
+      }
+      
+      // Redirect to the correct URL
+      window.location.replace(pathname + search);
     </script>
   </head>
   <body></body>
