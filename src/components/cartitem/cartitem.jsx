@@ -22,7 +22,7 @@ return(
                     </div>
                 </div>              
                 
-                <div className="min-w-[35%] lg:min-w-[132px] self-end">
+                <div className="min-w-[40%] lg:min-w-[132px] self-end">
                     <h2>qty: {quantity}</h2>
                     <h2 className="font-bold">Tot: ${(product.price*quantity).toFixed(2)}</h2>
                     <button onClick={() => removeFromCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500">
