@@ -14,7 +14,7 @@ import ToggleCart from '../components/togglecart/togglecart';
 export default function App() {
     return (
     <ShopContextProvider>
-      <Router>
+      <Router basename="/reactwebshop">
         <div className="App">
           <ToggleCart />
           <Navbar  />      
