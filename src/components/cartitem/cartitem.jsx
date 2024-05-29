@@ -9,7 +9,7 @@ const {addToCart, removeFromCart, deleteFromCart} = useContext(ShopContext);
 
 return(
         <>
-            <div className={`m-4 p-4 w-[80vw] lg:w-[50vw] bg-gray-300 rounded-lg flex`}>  
+            <div className={`m-4 p-4 w-[80vw] lg:w-[50vw] bg-gray-300 rounded-lg flex justify-between`}>  
                 <div className="flex flex-col lg:flex-row items-start">
                     <Link to={`/productpage/${product.id}`} className='w-[25%]'>
                         <img src={product.thumbnail} alt="product" />
