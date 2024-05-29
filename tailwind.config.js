@@ -5,8 +5,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-       
+      screens: {       
         lg: "700px"
       },
       boxShadow: {
