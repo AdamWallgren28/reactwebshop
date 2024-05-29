@@ -2,7 +2,7 @@
 Prerequisits: Node.js, Git & npm
 
 To start this project, clone it from my gitbub:
-# 'git clone htttps://...
+# https://github.com/AdamWallgren28/reactwebshop.git
 
 Install react locally (in your project directry) with the releveant packages.
 # npm ci
