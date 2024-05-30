@@ -2,20 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <title>Redirecting...</title>
     <meta http-equiv="refresh" content="0; url=/reactwebshop" />
     <script type="text/javascript">
-      // Capture the current path and query parameters
-      var pathname = window.location.pathname;
-      var search = window.location.search;
-      
-      // Ensure the pathname does not start with the basename
-      if (!pathname.startsWith('/reactwebshop')) {
-        pathname = '/reactwebshop' + pathname;
-      }
-      
-      // Redirect to the correct URL
-      window.location.replace(pathname + search);
+      (function() {
+        // Capture the current path, query, and hash
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        // Ensure the pathname includes the basename
+        var newPathname = '/reactwebshop' + pathname;
+
+        // Construct the full URL
+        var newURL = newPathname + search + hash;
+
+        // Replace the current URL with the new URL
+        window.location.replace(newURL);
+      })();
     </script>
   </head>
-  <body></body>
+  <body>
+    Redirecting...
+  </body>
 </html>
