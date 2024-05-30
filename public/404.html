@@ -3,22 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=/reactwebshop" />
     <script type="text/javascript">
       (function() {
-        // Capture the current path, query, and hash
         var pathname = window.location.pathname;
         var search = window.location.search;
         var hash = window.location.hash;
 
-        // Ensure the pathname includes the basename
-        var newPathname = '/reactwebshop' + pathname;
+        // Check if the pathname already starts with '/reactwebshop'
+        if (!pathname.startsWith('/reactwebshop')) {
+          // Construct the new URL with the correct basename
+          var newPathname = '/reactwebshop' + pathname;
+          var newURL = newPathname + search + hash;
 
-        // Construct the full URL
-        var newURL = newPathname + search + hash;
-
-        // Replace the current URL with the new URL
-        window.location.replace(newURL);
+          // Redirect to the new URL
+          window.location.replace(newURL);
+        } else {
+          // If already on the correct path, do nothing
+          console.warn('Already at the correct path:', pathname);
+        }
       })();
     </script>
   </head>
