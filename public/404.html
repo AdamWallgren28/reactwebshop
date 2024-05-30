@@ -28,3 +28,31 @@
     Redirecting...
   </body>
 </html>
+<!-- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      (function() {
+        var pathname = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+
+        // Ensure the pathname starts with the basename
+        if (!pathname.startsWith('/reactwebshop')) {
+          // Redirect to the correct URL
+          window.location.replace('/reactwebshop' + pathname + search + hash);
+        } else {
+          // If already redirected, display a user-friendly message or handle appropriately
+          document.write("Page not found. Please check the URL or go back to the homepage.");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
+ -->

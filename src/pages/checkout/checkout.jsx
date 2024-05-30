@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import {ShopContext} from '../../context/shopcontext';
 import CartItem from '../../components/cartitem/cartitem';
 import { Link } from 'react-router-dom';
@@ -7,18 +7,7 @@ import CheckOutInfo from '../../components/checkoutinfo/checkoutinfo';
 
 
 export default function CheckOut() {
-const {cart, fetchData} = useContext(ShopContext);
-
-const [cartProducts, setCartProducts] = useState(fetchData.filter((product) => cart[product.id] > 0));
-// const cartProducts = fetchData.filter((product) => cart[product.id] > 0 );
-
-useEffect(() => {
-  setCartProducts(fetchData.filter((product) => cart[product.id] > 0));
-}, [cart, fetchData]);
-
-
-
-
+const {cart, cartProducts} = useContext(ShopContext);
 
   return (
     <>   

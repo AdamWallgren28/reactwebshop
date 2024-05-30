@@ -20,7 +20,7 @@ export default function ShopContextPlusAndMinus (props) {
         .catch(error => {
             console.error('Error fetching data:', error);
         });
-    }, []); // Tom vektor för att köra efter rendering
+    }, []); // Tom vektor för att rendera "once at mount".
 
 
 
@@ -55,7 +55,17 @@ export default function ShopContextPlusAndMinus (props) {
         setCart({}) ;
     }
 
-    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData};
+    // Funktioner för att hålla reda på kundorg (och tot.kostnad)
+    const cartProducts = fetchData.filter((product) => cart[product.id] > 0);
+
+    function cartSum(cartProducts) {
+        const cartSumTotal = cartProducts.reduce((sum, product) => sum + product.price * cart[product.id], 0).toFixed(2);
+        
+        return cartSumTotal;
+    }
+
+    // Exporterad context
+    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts};
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };

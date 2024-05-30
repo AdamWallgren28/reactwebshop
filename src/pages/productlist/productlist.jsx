@@ -3,7 +3,7 @@ import {ShopContext} from '../../context/shopcontext';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard() {
-  let {addToCart, fetchData} = useContext(ShopContext);
+  let {addToCart, fetchData, cart} = useContext(ShopContext);
 
   return (
     <>
@@ -16,14 +16,20 @@ export default function ProductCard() {
               <div key={product.id} className="bg-gray-300 max-w-sm px-4 pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw]">
                 <li className='h-[100%] flex flex-col justify-between'>
                   <Link to={`/productpage/${product.id}`}>
-                    <img src={product.thumbnail} alt="product" className='w-[100%]'/>
+                    <img src={product.thumbnail} alt="product" className={`w-[100%] ${product.stock < 1 ? 'hidden' : '' }`} />
+                   
+                    <img src='https://images.pexels.com/photos/296916/pexels-photo-296916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="empty cart" className={` my-12 ${product.stock > 0 ? 'hidden' : ''}`}/>
                   </Link>
                   <h2 className='font-bold'>
                     <Link to={`/productpage/${product.id}`}>{product.title}</Link>
                   </h2>
                   <h5 className='hidden'>{product.description}</h5>
                   <h3 className='text-green-500'>${product.price}</h3>
-                  <button onClick={() => addToCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-2 px-4 rounded active:border-gray-500">
+                  <p className={`text-red-600 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
+                  <button onClick={() => addToCart(product.id)}
+                    className={` bg-gray-200 border border-black border-opacity-25 text-black ${product.stock < 1 ? 'text-gray-400' : ' active:border-gray-500  hover:bg-gray-100' } font-bold py-2 px-4 rounded `}
+                    disabled={product.stock < 1 || cart[product.id] >= product.stock}
+                    >
                     Add to chart
                   </button>
                 </li>

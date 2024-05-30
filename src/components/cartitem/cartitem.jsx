@@ -14,7 +14,7 @@ return(
                     <Link to={`/productpage/${product.id}`} className='w-[25%]'>
                         <img src={product.thumbnail} alt="product" />
                     </Link>
-                    <div className='pt-0 lg:pt-4 pr-4 self-start'>
+                    <div className='pt-0 lg:pt-8 pr-4 self-start'>
                         <Link to={`/productpage/${product.id}`}>
                             <h2 className='font-bold'>{product.title}</h2>
                         </Link>
@@ -28,7 +28,10 @@ return(
                     <button onClick={() => removeFromCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500">
                         -
                     </button>
-                    <button onClick={() => addToCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500">
+                    <button onClick={() => addToCart(product.id)}
+                        className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500"
+                        disabled={product.stock < 1 || quantity >= product.stock}
+                        >
                         +
                     </button>
                     <button onClick={() => deleteFromCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500 hover:text-red-700">

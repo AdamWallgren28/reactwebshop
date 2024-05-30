@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ShopContext } from '../../context/shopcontext';
+
 
 export default function OrderSummery({cart, cartProducts}){
 
+    const {cartSum } = useContext(ShopContext);
 
     return (
         <div className='m-4 px-4 py-2 w-[80vw] lg:w-[50vw] bg-gray-300 rounded-lg'>
@@ -27,9 +30,7 @@ export default function OrderSummery({cart, cartProducts}){
             <div className='flex justify-end'>
                 <div className='flex flex-col'>
                     <p class='totalCost' className='my-2'>
-                        Total cost: $ {cartProducts.reduce(
-                            (sum, product) => sum + product.price * cart[product.id], 0
-                        ).toFixed(2)}
+                        Total cost: $ {cartSum(cartProducts)}
                     </p> 
                 </div>
             </div>
