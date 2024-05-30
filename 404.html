@@ -18,7 +18,7 @@
           // Redirect to the new URL
           window.location.replace(newURL);
         } else {
-          // If already on the correct path, do nothing
+          // If the pathname already includes '/reactwebshop', do nothing to prevent infinite loop
           console.warn('Already at the correct path:', pathname);
         }
       })();
