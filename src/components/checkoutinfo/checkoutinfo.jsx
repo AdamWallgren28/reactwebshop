@@ -25,16 +25,14 @@ export default function CheckOutInfo() {
       ...prevData,
       [name]: value
     }));
- 
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const isFormValid = Object.values(formData).every((field) => field.trim() !== '');
-    if (isFormValid) {    
-      setModalOpen(true); // Open the modal on form submission
-     } else {
-      alert('Please fill out all fields');
+    e.preventDefault(); 
+    if (Object.values(formData).every((field) => field.trim() !== '')) {  // Kräver ifyllda fält på form
+      setModalOpen(true);
+    } else {
+      alert('Please fill out all customer info!');
     }
   };
 

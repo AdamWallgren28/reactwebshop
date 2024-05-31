@@ -13,21 +13,23 @@ export default function ProductCard() {
           <h1 className="text-2xl font-bold mb-4 my-8">Products:</h1>   
           <ul className='flex flex-wrap justify-center lg:justify-between'>
             {fetchData.map((product) => (
-              <div key={product.id} className="bg-gray-300 max-w-sm px-4 pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw]">
-                <li className='h-[100%] flex flex-col justify-between'>
+              <div key={product.id} className="bg-gray-300 max-w-sm pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw] overflow-hidden">
+                <li className='h-[100%] flex flex-col justify-between overflow-hidden'>
+                  {product.category === 'tablets' && (
+                    <p className='text-gray-200 bg-yellow-500 flex justify-center p-1 w-[16rem] relative left-[50%] top-8 rotate-45'>SALE</p>
+                  )}
                   <Link to={`/productpage/${product.id}`}>
-                    <img src={product.thumbnail} alt="product" className={`w-[100%] ${product.stock < 1 ? 'hidden' : '' }`} />
-                   
-                    <img src='https://images.pexels.com/photos/296916/pexels-photo-296916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' alt="empty cart" className={` my-12 ${product.stock > 0 ? 'hidden' : ''}`}/>
+                    <img src={product.thumbnail} alt="product" className={`w-[100%] ${product.stock < 1 ? 'hidden' : '' }`} />                   
+                    <img src='https://www.svgrepo.com/show/424880/sold-out-sales.svg' alt="empty cart" className={`my-4 mx-[5%] w-[90%] ${product.stock > 0 ? 'hidden' : ''}`}/>
                   </Link>
-                  <h2 className='font-bold'>
+                  <h2 className=' mx-4 font-bold'>
                     <Link to={`/productpage/${product.id}`}>{product.title}</Link>
                   </h2>
                   <h5 className='hidden'>{product.description}</h5>
-                  <h3 className='text-green-500'>${product.price}</h3>
-                  <p className={`text-red-600 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
+                  <h3 className='text-green-500 mx-4'>${product.price}</h3>
+                  <p className={`text-red-600 mx-4 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
                   <button onClick={() => addToCart(product.id)}
-                    className={` bg-gray-200 border border-black border-opacity-25 text-black ${product.stock < 1 ? 'text-gray-400' : ' active:border-gray-500  hover:bg-gray-100' } font-bold py-2 px-4 rounded `}
+                    className={`mx-4 bg-gray-200 border border-black border-opacity-25 text-black ${product.stock < 1 ? 'text-gray-400' : ' active:border-gray-500  hover:bg-gray-100' } font-bold py-2 px-4 rounded `}
                     disabled={product.stock < 1 || cart[product.id] >= product.stock}
                     >
                     Add to chart

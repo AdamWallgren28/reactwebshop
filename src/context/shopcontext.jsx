@@ -4,7 +4,7 @@ export let ShopContext = createContext(null);
 
 export default function ShopContextPlusAndMinus (props) {
 
-    // Hämtar prudukter via API
+// Hämtar prudukter via API
     let[fetchData, setFetchData] = useState([]);
 
     useEffect(() => {
@@ -22,11 +22,13 @@ export default function ShopContextPlusAndMinus (props) {
         });
     }, []); // Tom vektor för att rendera "once at mount".
 
-
-
-    // Nedan följer funktioner för att regigera innehållet i kundkorgen
-    let [cart, setCart] = useState({});
-
+// Deklarerar kundkorg (eller hämtar från localstorage vid reload)
+    const [cart, setCart] = useState(() => {
+        const savedCart = localStorage.getItem('cart');
+        return savedCart ? JSON.parse(savedCart) : {};
+    });
+    
+// Nedan följer funktioner för att regigera innehållet i kundkorgen
     function addToCart(itemId) {
         setCart((prev) => ({ ...prev, [itemId]: (prev[itemId] || 0) + 1 }));
     }
@@ -55,7 +57,7 @@ export default function ShopContextPlusAndMinus (props) {
         setCart({}) ;
     }
 
-    // Funktioner för att hålla reda på kundorg (och tot.kostnad)
+// Funktioner för att hålla reda på kundorg (och tot.kostnad) - useEffect för att spara lokalt, vid reLoad
     const cartProducts = fetchData.filter((product) => cart[product.id] > 0);
 
     function cartSum(cartProducts) {
@@ -64,7 +66,13 @@ export default function ShopContextPlusAndMinus (props) {
         return cartSumTotal;
     }
 
-    // Exporterad context
+// Spar kundkorg i localStorage
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+    }, [cart, cartProducts]);
+
+// Exporterad context
     let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts};
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
