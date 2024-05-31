@@ -16,7 +16,7 @@ export default function ProductCard() {
               <div key={product.id} className="bg-gray-300 max-w-sm pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw] overflow-hidden">
                 <li className='h-[100%] flex flex-col justify-between overflow-hidden'>
                   {product.category === 'tablets' && (
-                    <p className='text-gray-200 bg-yellow-500 flex justify-center p-1 w-[16rem] relative left-[50%] top-8 rotate-45'>SALE</p>
+                    <p className=' bg-yellow-500 flex justify-center p-1 relative left-[40%] top-[10%] rotate-45'>SALE / SALE / SALE / SALE</p>
                   )}
                   <Link to={`/productpage/${product.id}`}>
                     <img src={product.thumbnail} alt="product" className={`w-[100%] ${product.stock < 1 ? 'hidden' : '' }`} />                   
