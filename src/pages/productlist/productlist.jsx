@@ -26,8 +26,11 @@ export default function ProductCard() {
                     <Link to={`/productpage/${product.id}`}>{product.title}</Link>
                   </h2>
                   <h5 className='hidden'>{product.description}</h5>
-                  <h3 className='text-green-500 mx-4'>${product.price}</h3>
-                  <p className={`text-red-600 mx-4 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
+                  <h3>
+                    <span className={`mx-4 ${product.category === 'tablets' ? 'text-black line-through' : 'text-green-500'}`}>${product.price}</span>
+                    {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.3).toFixed(2)}</span> : ''}
+                  </h3>
+                  <p className={`text-gray-600 mx-4 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
                   <button onClick={() => addToCart(product.id)}
                     className={`mx-4 bg-gray-200 border border-black border-opacity-25 text-black ${product.stock < 1 ? 'text-gray-400' : ' active:border-gray-500  hover:bg-gray-100' } font-bold py-2 px-4 rounded `}
                     disabled={product.stock < 1 || cart[product.id] >= product.stock}
