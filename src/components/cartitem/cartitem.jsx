@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function CartItem({product, quantity}) {
 
-const {addToCart, removeFromCart, deleteFromCart} = useContext(ShopContext);
+const {addToCart, removeFromCart, deleteFromCart, cart} = useContext(ShopContext);
 
 return(
         <>
@@ -18,13 +18,17 @@ return(
                         <Link to={`/productpage/${product.id}`}>
                             <h2 className='font-bold'>{product.title}</h2>
                         </Link>
-                        <h3 className='text-green-500'>${product.price}</h3>
+                        <h3 className='text-green-500'>
+                            {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.5).toFixed(2)}</span> : <span>$ {product.price}</span>}
+                        </h3>
                     </div>
                 </div>              
                 
                 <div className="min-w-[40%] lg:min-w-[132px] self-end">
                     <h2>qty: {quantity}</h2>
-                    <h2 className="font-bold">Tot: ${(product.price*quantity).toFixed(2)}</h2>
+                    <h2 className="font-bold">Tot: 
+                        {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * cart[product.id] * 0.5).toFixed(2)}</span> : <span>$ {(product.price*cart[product.id]).toFixed(2)}</span>}
+                    </h2>
                     <button onClick={() => removeFromCart(product.id)} className="bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500">
                         -
                     </button>

@@ -2,7 +2,11 @@ import React, { createContext, useState, useEffect } from "react";
  
 export let ShopContext = createContext(null);
 
+
 export default function ShopContextPlusAndMinus (props) {
+
+// state för att visa/dölja toggleCart
+    const [showing, setShowing] = useState(false);
 
 // Hämtar prudukter via API
     let[fetchData, setFetchData] = useState([]);
@@ -60,10 +64,18 @@ export default function ShopContextPlusAndMinus (props) {
 // Funktioner för att hålla reda på kundorg (och tot.kostnad) - useEffect för att spara lokalt, vid reLoad
     const cartProducts = fetchData.filter((product) => cart[product.id] > 0);
 
+
+
     function cartSum(cartProducts) {
-        const cartSumTotal = cartProducts.reduce((sum, product) => sum + product.price * cart[product.id], 0).toFixed(2);
         
-        return cartSumTotal;
+        const cartSumTotal = cartProducts.reduce((sum, product) => {
+            
+            const reaOrFullPrice = product.category === 'tablets' ? (product.price * cart[product.id] / 2) : product.price * cart[product.id];;
+
+            return sum + reaOrFullPrice;
+        }, 0);
+        
+        return cartSumTotal.toFixed(2);
     }
 
 // Spar kundkorg i localStorage
@@ -73,7 +85,7 @@ export default function ShopContextPlusAndMinus (props) {
     }, [cart, cartProducts]);
 
 // Exporterad context
-    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts};
+    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts, showing, setShowing};
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };

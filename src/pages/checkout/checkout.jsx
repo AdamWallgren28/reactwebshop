@@ -7,7 +7,9 @@ import CheckOutInfo from '../../components/checkoutinfo/checkoutinfo';
 
 
 export default function CheckOut() {
-const {cart, cartProducts} = useContext(ShopContext);
+const {cart, cartProducts, setShowing} = useContext(ShopContext);
+
+setShowing(false);
 
   return (
     <>   

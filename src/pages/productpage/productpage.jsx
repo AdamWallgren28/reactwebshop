@@ -25,7 +25,7 @@ export default function ProductPage() {
               <p>Description:</p>
               <p><em>{product.description}</em></p>
               <p className='mt-2'>Price: <span className={`mx-4 ${product.category === 'tablets' ? 'text-black line-through' : 'text-green-500'}`}>${product.price}</span>
-                    {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.3).toFixed(2)}</span> : ''}</p>
+                    {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.5).toFixed(2)}</span> : ''}</p>
               <p>In stock : <span className={product.stock < 10 ? 'text-red-600' : ''}>{product.stock} pcs</span></p>     
               <button onClick={() => addToCart(product.id)}
                 className={` bg-gray-200 border border-black border-opacity-25 text-black ${product.stock < 1 ? 'text-gray-400' : ' active:border-gray-500  hover:bg-gray-100' } font-bold py-2 px-4 rounded `}

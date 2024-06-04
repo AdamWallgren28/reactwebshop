@@ -16,7 +16,7 @@ export default function App() {
     <ShopContextProvider>
       <Router basename="/reactwebshop">
         <div className="App">
-          <ToggleCart />
+          {/* <ToggleCart /> */}
           <Navbar  />      
           <Routes>
             <Route path='/' element={<Home />} />

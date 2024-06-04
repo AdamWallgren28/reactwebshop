@@ -28,7 +28,7 @@ export default function ProductCard() {
                   <h5 className='hidden'>{product.description}</h5>
                   <h3>
                     <span className={`mx-4 ${product.category === 'tablets' ? 'text-black line-through' : 'text-green-500'}`}>${product.price}</span>
-                    {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.3).toFixed(2)}</span> : ''}
+                    {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.5).toFixed(2)}</span> : ''}
                   </h3>
                   <p className={`text-gray-600 mx-4 ${product.stock > 0 ? 'hidden' : ''}`}>OUT OF STOCK</p>
                   <button onClick={() => addToCart(product.id)}

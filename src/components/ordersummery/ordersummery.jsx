@@ -4,7 +4,7 @@ import { ShopContext } from '../../context/shopcontext';
 
 export default function OrderSummery({cart, cartProducts}){
 
-    const {cartSum } = useContext(ShopContext);
+    const { cartSum } = useContext(ShopContext);
     const deliveryCost = Number(cartSum(cartProducts)) < 500 ? 4.95 : 0 ;
     const grandTot = deliveryCost + Number(cartSum(cartProducts));
    
@@ -30,8 +30,11 @@ export default function OrderSummery({cart, cartProducts}){
                         <br class='lg:hidden'></br>
                         <div className='flex justify-between lg:justify-start lg:w-[60%]'>
                             <p className='lg:w-[20%]'><span className='lg:hidden'>Qty:</span>{cart[product.id]}</p> 
-                            <p className='lg:w-[40%]'><span className='lg:hidden'>à: </span>$ {product.price}</p>
-                            <p className='lg:w-[40%] mb-8 lg:mb-0'><span className='lg:hidden'>tot::</span>$ {(product.price*cart[product.id]).toFixed(2)}</p>
+                            <p className='lg:w-[40%]'><span className='lg:hidden'>à: </span>
+                            {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * 0.5).toFixed(2)}</span> : <span>$ {product.price}</span>}</p>
+                            <p className='lg:w-[40%] mb-8 lg:mb-0'><span className='lg:hidden'>tot::</span>
+                            {product.category === 'tablets' ? <span className='text-red-600'>$ {(product.price * cart[product.id] * 0.5).toFixed(2)}</span> : <span>$ {(product.price*cart[product.id]).toFixed(2)}</span>}
+                            </p>
                         </div>
                     </div>
                 ))}
