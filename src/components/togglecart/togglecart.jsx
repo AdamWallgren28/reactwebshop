@@ -24,8 +24,8 @@ export default function ToggleCart({ isCartVisible }){
                         <CartItem key={product.id} product={product} quantity={cart[product.id]}/>
                     ))}
                     {/* <OrderSummery cart={cart} cartProducts={cartProducts} /> */}
-                    <p class='totalCost' className='text-xs mt-2'> Total cost: $ {cartSum(cartProducts)}</p>
-                    <p  className='text-xs mb-2'>Delivery cost: $ {deliveryCost}</p>
+                    <p className='text-xs mt-2'> Total cost: $ {cartSum(cartProducts)}</p>
+                    <p className='text-xs mb-2'>Delivery cost: $ {deliveryCost}</p>
                     <hr className=' border-gray-400'></hr>
                     <p  className='mt-2'>Total cost: $ {(grandTot).toFixed(2)} </p>
                 </div>   

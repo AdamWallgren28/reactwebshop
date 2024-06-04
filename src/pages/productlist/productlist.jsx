@@ -1,18 +1,48 @@
-import React, {useContext } from 'react';
+import React, {useContext, useState } from 'react';
+
 import {ShopContext} from '../../context/shopcontext';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard() {
   let {addToCart, fetchData, cart} = useContext(ShopContext);
 
+  const [selectedCategory, setSelectedCategory] = useState('');
+  // const handleCategoryChange = (category) => {
+  //   setSelectedCategory(category);
+  // };
+
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+};
+  const filteredData = selectedCategory ? fetchData.filter(product => product.category === selectedCategory) : fetchData;
+
   return (
     <>
       <div className="flex justify-center bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1493723843671-1d655e66ac1c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"}}>
         <div className="flex flex-col justify-center w-[90vw] lg:w-[70vw] bg-[white] bg-opacity-80 p-8 m-8 rounded-lg shadow-lg">
   
-          <h1 className="text-2xl font-bold mb-4 my-8">Products:</h1>   
+          <h1 className="text-2xl font-bold mb-4 my-2 lg:my-8">Products:</h1>
+          {/* <div className="flex flex-col lg:flex-row justify-center mb-8">
+              <button onClick={() => handleCategoryChange('laptops')} className="w-[90%] lg:w-[20%] m-2 p-2 bg-blue-500 text-white rounded">Laptops</button>
+              <button onClick={() => handleCategoryChange('tablets')} className="w-[90%] lg:w-[20%] m-2 p-2 bg-blue-500 text-white rounded">Tablets</button>
+              <button onClick={() => handleCategoryChange('mobile-accessories')} className="w-[90%] lg:w-[20%] m-2 p-2 bg-blue-500 text-white rounded">Accessories</button>
+              <button onClick={() => handleCategoryChange('')} className="w-[90%] lg:w-[20%] m-2 p-2 bg-gray-500 text-white rounded">All</button>
+          </div>    */}
+          <div className="flex justify-center mb-4">
+                        <select
+                            onChange={handleCategoryChange}
+                            className="p-2 bg-gray-300 text-black rounded"
+                            value={selectedCategory}
+                        >
+                            <option value="" className='hidden'>Select products</option>
+                            <option value="">All</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="tablets">Tablets</option>
+                            <option value="mobile-accessories">Mobile Devices</option>
+                        </select>
+                    </div>
           <ul className='flex flex-wrap justify-center lg:justify-between'>
-            {fetchData.map((product) => (
+            {filteredData.map((product) => (
               <div key={product.id} className="bg-gray-300 max-w-sm pb-4  my-7 rounded-lg shadow-xl w-[80vw] lg:w-[20vw] overflow-hidden">
                 <li className='h-[100%] flex flex-col justify-between overflow-hidden'>
                   {product.category === 'tablets' && (
