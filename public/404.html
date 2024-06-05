@@ -13,9 +13,14 @@
       ];
 
       
-      if (redirectPaths.includes(window.location.pathname)) {
-        window.location.href = "/reactwebshop/#/"; 
+
+
+      const currentPath = window.location.pathname;
+      if (redirectPaths.includes(currentPath)) {
+        window.location.href = `/reactwebshop${currentPath}`; 
       }
+
+
     </script>
   </head>
   <body>
