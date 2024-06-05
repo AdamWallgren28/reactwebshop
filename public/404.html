@@ -7,14 +7,14 @@
 
       const redirectPaths = [
         "/reactwebshop/", 
-        "/reactwebshop/about/",
-        "/reactwebshop/checkout/",
-        "/reactwebshop/productlist/",// Add more paths if needed
+        "/reactwebshop/about",
+        "/reactwebshop/checkout",
+        "/reactwebshop/productlist",
       ];
 
-      // Check if current pathname requires redirection
+      
       if (redirectPaths.includes(window.location.pathname)) {
-        window.location.href = "/reactwebshop/#/"; // Redirect to homepage
+        window.location.href = "/reactwebshop/#/"; 
       }
     </script>
   </head>
