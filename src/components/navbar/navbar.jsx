@@ -1,12 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { ShopContext } from '../../context/shopcontext';
 import { Link } from 'react-router-dom';
 import ToggleCart from '../togglecart/togglecart';
+import { useLocation } from 'react-router-dom';
+
 
 
 export default function Navbar () {
   const {cartProducts, cartSum, showing, setShowing } = useContext(ShopContext);
- 
+  const { pathname } = useLocation();
+
+  // Scrollar till topen vid sidbyte.
+  // (Har lagt denna i en "global" komponent, istället för context, då "useLocation" måste vara wrappat i <Router>.)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <>
     <nav className='h-40 bg-gray-200 sticky top-0 z-50 shadow-lg text-gray-800'>

@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react';
 import ProductCard from '../pages/productlist/productlist';
 import Navbar from '../components/navbar/navbar';
 import CheckOut from '../pages/checkout/checkout';
@@ -9,9 +10,10 @@ import Footer from '../components/footer/footer';
 import Home from '../pages/home/home';
 import ShopContextProvider from '../context/shopcontext';
 import ProductPage from '../pages/productpage/productpage';
-import ToggleCart from '../components/togglecart/togglecart';
+
 
 export default function App() {
+
     return (
     <ShopContextProvider>
       <Router basename="/reactwebshop">

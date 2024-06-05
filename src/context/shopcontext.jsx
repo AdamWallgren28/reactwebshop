@@ -1,8 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
- 
+// import { useLocation } from "react-router-dom";
+
 export let ShopContext = createContext(null);
-
-
 export default function ShopContextPlusAndMinus (props) {
 
 // state för att visa/dölja toggleCart
@@ -83,6 +82,9 @@ export default function ShopContextPlusAndMinus (props) {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
     }, [cart, cartProducts]);
+
+// Scroll to top
+
 
 // Exporterad context
     let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts, showing, setShowing};
