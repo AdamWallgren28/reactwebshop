@@ -9,16 +9,16 @@
         var search = window.location.search;
         var hash = window.location.hash;
 
-        // Check if the pathname already starts with '/reactwebshop'
+        
         if (!pathname.startsWith('/reactwebshop')) {
-          // Construct the new URL with the correct basename
+          
           var newPathname = '/reactwebshop' + pathname;
           var newURL = newPathname + search + hash;
 
-          // Redirect to the new URL
+          
           window.location.replace(newURL);
         } else {
-          // If the pathname already includes '/reactwebshop', do nothing to prevent infinite loop
+          
           console.warn('Already at the correct path:', pathname);
         }
       })();
@@ -28,6 +28,11 @@
     Redirecting...
   </body>
 </html>
+
+
+
+
+
 <!-- 
 <!DOCTYPE html>
 <html>
