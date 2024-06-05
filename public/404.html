@@ -5,11 +5,14 @@
     <title>Redirecting...</title>
     <script type="text/javascript">
 
-if (window.location.pathname === "/reactwebshop/") {
-        window.location.href = "/reactwebshop/#/";
-      }
+      const redirectPaths = [
+        "/reactwebshop/", // Add more paths if needed
+      ];
 
-      
+      // Check if current pathname requires redirection
+      if (redirectPaths.includes(window.location.pathname)) {
+        window.location.href = "/reactwebshop/#/"; // Redirect to homepage
+      }
     </script>
   </head>
   <body>
