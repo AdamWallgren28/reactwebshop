@@ -10,25 +10,16 @@
         "/reactwebshop/about",
         "/reactwebshop/checkout",
         "/reactwebshop/productlist",
-        /^/reactwebshop/productlist/\d+$/
+        
       ];
 
-      if (redirectPaths.some(path => {
-        if (typeof path === 'string') {
-          return currentPath === path;
-        } else if (path instanceof RegExp) {
-          return path.test(currentPath);
-        }
-        return false;
-      })) {
+
+
+
+      const currentPath = window.location.pathname;
+      if (redirectPaths.includes(currentPath)) {
         window.location.href = "/reactwebshop/#/"; 
       }
-
-
-      // const currentPath = window.location.pathname;
-      // if (redirectPaths.includes(currentPath)) {
-      //   window.location.href = "/reactwebshop/#/"; 
-      // }
 
     </script>
   </head>
