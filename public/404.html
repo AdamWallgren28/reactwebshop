@@ -4,24 +4,12 @@
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
     <script type="text/javascript">
-      (function() {
-        var pathname = window.location.pathname;
-        var search = window.location.search;
-        var hash = window.location.hash;
 
-        
-        if (!pathname.startsWith('/reactwebshop')) {
-          
-          var newPathname = '/reactwebshop' + pathname;
-          var newURL = newPathname + search + hash;
+if (window.location.pathname === "/reactwebshop/") {
+        window.location.href = "/reactwebshop/#/";
+      }
 
-          
-          window.location.replace(newURL);
-        } else {
-          
-          console.warn('Already at the correct path:', pathname);
-        }
-      })();
+      
     </script>
   </head>
   <body>
@@ -29,6 +17,24 @@
   </body>
 </html>
 
+<!-- (function() {
+  var pathname = window.location.pathname;
+  var search = window.location.search;
+  var hash = window.location.hash;
+
+  
+  if (!pathname.startsWith('/reactwebshop')) {
+    
+    var newPathname = '/reactwebshop' + pathname;
+    var newURL = newPathname + search + hash;
+
+    
+    window.location.replace(newURL);
+  } else {
+    
+    console.warn('Already at the correct path:', pathname);
+  }
+})(); -->
 
 
 
