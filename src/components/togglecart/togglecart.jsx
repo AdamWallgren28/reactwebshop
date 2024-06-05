@@ -15,13 +15,13 @@ export default function ToggleCart({ isCartVisible }){
 
     return (
         <>
-            <div className="w-[100vw] lg:w-[60vw] bg-gray-200 absolute top-0 right-0 z-20 p-4 shadow-lg">
+            <div className="w-[100vw] lg:w-[40vw] max-h-[80vh] lg:max-h-[80vh] overflow-auto bg-gray-200 fixed top-0 right-0 z-20 p-4 shadow-2xl">
                 {/* <div className='h-30'></div> */}
             
-                <p className='mt-40'>ToggleCart!!!</p>        
+                <p className='mt-40'>Your cart:</p>        
                 <div className='flex flex-col items-center'>
                     {cartProducts.map((product) => (
-                        <CartItem key={product.id} product={product} quantity={cart[product.id]}/>
+                        <CartItem key={product.id} product={product} quantity={cart[product.id]} isToggle={true}/>
                     ))}
                     {/* <OrderSummery cart={cart} cartProducts={cartProducts} /> */}
                     <p className='text-xs mt-2'> Total cost: $ {cartSum(cartProducts)}</p>
@@ -30,9 +30,9 @@ export default function ToggleCart({ isCartVisible }){
                     <p  className='mt-2'>Total cost: $ {(grandTot).toFixed(2)} </p>
                 </div>   
 
-                <p className="ml-4 bg-gray-300 hover:bg-gray-100 border border-gray-600 border-opacity-25 text-black py-2 px-4 rounded active:border-gray-500">
+                <button className="ml-4 bg-gray-300 hover:bg-gray-100 border border-gray-600 border-opacity-25 text-black py-2 px-4 rounded active:border-gray-500">
                     <Link to='/checkout'>To Checkout</Link>
-                </p>
+                </button>
             </div>
         </>
 
