@@ -43,10 +43,10 @@ export default function OrderSummery({cart, cartProducts}){
             <div className='flex justify-end'>
                 <div className='flex flex-col'>
                     
-                    <p class='totalCost' className='text-xs mt-2'> Total cost: $ {cartSum(cartProducts)}</p>
+                    <p class='totalCost' className='text-xs mt-2'> Order cost: $ {cartSum(cartProducts)}</p>
                     <p  className='text-xs mb-2'>Delivery cost: $ {deliveryCost}</p>
                     <hr className=' border-gray-400'></hr>
-                    <p  className='mt-2'>Total cost: $ {(grandTot).toFixed(2)} </p>
+                    <p  className='mt-2'>Grand total: $ {(grandTot).toFixed(2)} </p>
                 </div>
             </div>
         </div>
