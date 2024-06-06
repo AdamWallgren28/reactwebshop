@@ -25,10 +25,10 @@ export default function ToggleCart({ isCartVisible }){
                     ))}
                     {/* <OrderSummery cart={cart} cartProducts={cartProducts} /> */}
                     <div className='self-start'>
-                        <p className='text-xs mt-2'> Order cost: $ {cartSum(cartProducts)}</p>
-                        <p className='text-xs mb-2'>Delivery cost: $ {deliveryCost}</p>
+                        <p className='text-xs lg:text-sm mt-2'> Order cost: $ {cartSum(cartProducts)}</p>
+                        <p className='text-xs lg:text-sm mb-2'>Delivery cost: $ {deliveryCost}</p>
                         <hr className=' border-gray-400'></hr>
-                        <p  className='mt-2'>Grand total: $ {(grandTot).toFixed(2)} </p>
+                        <p  className='mt-2 lg:text-lg font-bold'>Grand total: $ {(grandTot).toFixed(2)} </p>
                     </div>
                 </div>   
 
