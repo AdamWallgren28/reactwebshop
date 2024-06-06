@@ -79,9 +79,12 @@ export default function ShopContextPlusAndMinus (props) {
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
     }, [cart, cartProducts]);
 
+    const deliveryCost = Number(cartSum(cartProducts)) > 0 && Number(cartSum(cartProducts)) < 500 ? 4.95 : 0 ;
+    const grandTot = deliveryCost + Number(cartSum(cartProducts));
+
 
 // Exporterad context
-    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts, showing, setShowing};
+    let contextValue = {cart, addToCart, removeFromCart, deleteFromCart, deleteCart, fetchData, cartSum, cartProducts, showing, setShowing, grandTot, deliveryCost};
 
     return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };

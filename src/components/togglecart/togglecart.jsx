@@ -4,9 +4,7 @@ import CartItem from '../cartitem/cartitem';
 import { Link } from 'react-router-dom';
 
 export default function ToggleCart(){
-    const {cart, cartProducts, cartSum} = useContext(ShopContext);
-    const deliveryCost = Number(cartSum(cartProducts)) > 0 && Number(cartSum(cartProducts)) < 500 ? 4.95 : 0 ;
-    const grandTot = deliveryCost + Number(cartSum(cartProducts));
+    const {cart, cartProducts, cartSum, grandTot, deliveryCost} = useContext(ShopContext);
 
     return (
         <>
@@ -23,10 +21,11 @@ export default function ToggleCart(){
                         <p  className='mt-2 lg:text-lg font-bold'>Grand total: $ {(grandTot).toFixed(2)} </p>
                     </div>
                 </div>   
-
-                <button className='bg-gray-300 hover:bg-gray-100 border border-gray-600 border-opacity-25 mt-4 text-black py-2 px-4 rounded active:border-gray-500'>
-                    <Link to='/checkout'>To Checkout</Link>
-                </button>
+                <Link to='/checkout'>
+                    <button className='bg-gray-300 hover:bg-gray-100 border border-gray-600 border-opacity-25 mt-4 text-black py-2 px-4 rounded active:border-gray-500'>
+                        To Checkout
+                    </button>
+                </Link>
             </div>
         </>
 

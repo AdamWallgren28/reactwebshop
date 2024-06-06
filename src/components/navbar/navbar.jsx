@@ -5,12 +5,9 @@ import ToggleCart from '../togglecart/togglecart';
 import { useLocation } from 'react-router-dom';
 
 export default function Navbar () {
-  const {cartProducts, cartSum, showing, setShowing } = useContext(ShopContext);
+  const {showing, setShowing, grandTot } = useContext(ShopContext);
   const { pathname } = useLocation();
   
-  const deliveryCost = Number(cartSum(cartProducts)) > 0 && Number(cartSum(cartProducts)) < 500 ? 4.95 : 0 ;
-  const grandTot = deliveryCost + Number(cartSum(cartProducts));
-
   // Scrollar till toppen vid sidbyte.
   // (Har lagt denna i en "global" komponent, istället för context, då "useLocation" måste vara wrappat i <Router>.)
   useEffect(() => {
