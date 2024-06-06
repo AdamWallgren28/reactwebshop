@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 // import { useLocation } from "react-router-dom";
 
 export let ShopContext = createContext(null);
@@ -63,14 +63,10 @@ export default function ShopContextPlusAndMinus (props) {
 // Funktioner för att hålla reda på kundorg (och tot.kostnad) - useEffect för att spara lokalt, vid reLoad
     const cartProducts = fetchData.filter((product) => cart[product.id] > 0);
 
-
-
     function cartSum(cartProducts) {
         
         const cartSumTotal = cartProducts.reduce((sum, product) => {
-            
             const reaOrFullPrice = product.category === 'tablets' ? (product.price * cart[product.id] / 2) : product.price * cart[product.id];;
-
             return sum + reaOrFullPrice;
         }, 0);
         
@@ -82,8 +78,6 @@ export default function ShopContextPlusAndMinus (props) {
         localStorage.setItem('cart', JSON.stringify(cart));
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
     }, [cart, cartProducts]);
-
-// Scroll to top
 
 
 // Exporterad context

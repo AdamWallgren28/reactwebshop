@@ -8,8 +8,6 @@ export default function ProductPage() {
 
   const product = fetchData.find((product) => product.id === parseInt(productId));
 
-
-
   if (!product) {
     return <div>Product not found</div>;
   }

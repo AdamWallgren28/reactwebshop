@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ProductCard from '../pages/productlist/productlist';
 import Navbar from '../components/navbar/navbar';
 import CheckOut from '../pages/checkout/checkout';
@@ -16,16 +16,15 @@ export default function App() {
 
     return (
     <ShopContextProvider>
-      <Router basename="/reactwebshop">
-        <div className="App">
-          {/* <ToggleCart /> */}
+      <Router basename='/reactwebshop'>
+        <div className='App'>
           <Navbar  />      
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/productlist' element={<ProductCard />} />
             <Route path='/checkout' element={<CheckOut />} />
             <Route path='/about' element={<About />} />  
-            <Route path="/productpage/:productId" element={<ProductPage />} />
+            <Route path='/productpage/:productId' element={<ProductPage />} />
           </Routes>
           <Footer />
         </div>
