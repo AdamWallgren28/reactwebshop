@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 export default function ProductCard() {
   let {addToCart, fetchData, cart} = useContext(ShopContext);
 
+// Produkt/kategorifilter
   const [selectedCategory, setSelectedCategory] = useState('');
-
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
   };

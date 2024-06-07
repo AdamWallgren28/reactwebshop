@@ -34,7 +34,7 @@ return(
                     </button>
                     <button onClick={() => addToCart(product.id)}
                         className='bg-gray-200 hover:bg-gray-100 border border-black border-opacity-25 text-black font-bold py-1 px-3 rounded  active:border-gray-500'
-                        disabled={product.stock < 1 || quantity >= product.stock}
+                        disabled={product.stock < 1 || quantity >= product.stock}  // Förhindrar att kund beställer fler än vad som finns i lager
                         >
                         +
                     </button>

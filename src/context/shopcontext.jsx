@@ -19,6 +19,7 @@ export default function ShopContextPlusAndMinus (props) {
         .then(([tabletsData, laptopsData, mobileAccessoriesData]) => {
             const combinedData = [...laptopsData.products, ...tabletsData.products, ...mobileAccessoriesData.products];
             setFetchData(combinedData);
+            
         })
         .catch(error => {
             console.error('Error fetching data:', error);
