@@ -5,6 +5,7 @@
     <title>Redirecting...</title>
     <script type='text/javascript'>
 
+// Redirect vid reaload (lösning för github-pages)
       const redirectPaths = [
         '/reactwebshop/', 
         '/reactwebshop/about',
@@ -12,6 +13,7 @@
         '/reactwebshop/productlist',        
       ];
 
+      // Inkluderar productPages för hela dummy-jason. (Funkar även om fler kategorier läggs till)
       for (let i = 1; i <= 100; i++) {
         redirectPaths.push(`/reactwebshop/productpage/${i}`);
       }
